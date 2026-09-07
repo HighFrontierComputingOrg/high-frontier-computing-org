@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLX6HBDBDQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HLX6HBDBDQ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecwarOrg — A Code Preservation Society</title>
+    <meta name="description" content="An organization dedicated to the preservation, study, and cultural history of Decwar, one of the earliest multiplayer computer games.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'burnt-orange': '#bf5700',
+                        'orange-dark': '#a34b00',
+                        'tangerine': '#f8971f',
+                        'charcoal': '#333f48',
+                        'charcoal-light': '#4a5568',
+                        'taupe': '#d6d2c4',
+                        'ut-gray': '#9cadb7',
+                        'ut-teal': '#005f86',
+                        'ut-cyan': '#00a9b7',
+                        'ut-gold': '#ffd600',
+                        'parchment': '#faf9f7',
+                        'cream': '#f5f4f1',
+                        'warm-white': '#fffffe',
+                    },
+                    fontFamily: {
+                        serif: ['Crimson Pro', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    fontSize: {
+                        'display': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+                        'display-sm': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom selection color */
+        ::selection {
+            background: #bf5700;
+            color: white;
+        }
+
+        /* Ornamental dividers */
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .ornament::before,
+        .ornament::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to var(--dir, right), #bf5700, transparent);
+        }
+        .ornament::after {
+            --dir: left;
+        }
+
+        /* Hero pattern */
+        .hero-pattern {
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(191, 87, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(0, 95, 134, 0.03) 0%, transparent 50%);
+        }
+
+        /* Grid pattern for sections */
+        .grid-pattern {
+            background-image:
+                linear-gradient(rgba(191, 87, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(191, 87, 0, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* Card styles */
+        .card {
+            background: white;
+            border: 1px solid rgba(191, 87, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card:hover {
+            border-color: rgba(191, 87, 0, 0.3);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Dark card variant */
+        .card-dark {
+            background: linear-gradient(135deg, #333f48 0%, #2a353f 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card-dark:hover {
+            border-color: rgba(191, 87, 0, 0.5);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Timeline */
+        .timeline-dot {
+            box-shadow: 0 0 0 4px #333f48, 0 0 0 6px #bf5700;
+        }
+
+        /* Section transitions */
+        .section-fade {
+            position: relative;
+        }
+        .section-fade::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(191, 87, 0, 0.2) 20%, rgba(191, 87, 0, 0.2) 80%, transparent);
+        }
+
+        /* Button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #bf5700 0%, #a34b00 100%);
+            box-shadow: 0 4px 14px -2px rgba(191, 87, 0, 0.4);
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px -2px rgba(191, 87, 0, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #bf5700;
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:hover {
+            background: #bf5700;
+            color: white;
+        }
+
+        /* Code block */
+        .code-window {
+            background: linear-gradient(180deg, #1a1f24 0%, #0d1117 100%);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Blockquote */
+        blockquote {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 3px solid #bf5700;
+        }
+        blockquote::before {
+            content: '"';
+            position: absolute;
+            top: -0.5rem;
+            left: 0.5rem;
+            font-size: 4rem;
+            font-family: 'Crimson Pro', serif;
+            color: rgba(191, 87, 0, 0.1);
+            line-height: 1;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Tag/badge styles */
+        .tag {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            padding: 0.35rem 0.75rem;
+        }
+
+        /* Link underline animation */
+        .link-underline {
+            position: relative;
+        }
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: currentColor;
+            transition: width 0.2s ease;
+        }
+        .link-underline:hover::after {
+            width: 100%;
+        }
+
+        /* Number markers */
+        .number-marker {
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #bf5700 0%, #a34b00 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-parchment text-charcoal antialiased">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-parchment/80 backdrop-blur-md border-b border-burnt-orange/10">
+        <nav class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="https://decwar.org" class="group flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-burnt-orange to-orange-dark flex items-center justify-center">
+                        <span class="font-mono text-white font-bold text-sm">DW</span>
+                    </div>
+                    <span class="font-serif text-xl font-semibold text-charcoal group-hover:text-burnt-orange transition-colors">
+                        Decwar<span class="text-burnt-orange">Org</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="#about" class="px-4 py-2 text-sm font-medium text-charcoal-light hover:text-burnt-orange transition-colors rounded-lg hover:bg-burnt-orange/5">About</a>
+                    <a href="https://www.youtube.com/@decwarorg" class="px-4 py-2 text-sm font-medium text-charcoal-light hover:text-burnt-orange transition-colors rounded-lg hover:bg-burnt-orange/5">YouTube</a>
+                    <a href="https://decwarorg.blogspot.com/" class="px-4 py-2 text-sm font-medium text-charcoal-light hover:text-burnt-orange transition-colors rounded-lg hover:bg-burnt-orange/5">Blog</a>
+                    <a href="#projects" class="px-4 py-2 text-sm font-medium text-charcoal-light hover:text-burnt-orange transition-colors rounded-lg hover:bg-burnt-orange/5">Projects</a>
+                    <a href="#archives" class="px-4 py-2 text-sm font-medium text-charcoal-light hover:text-burnt-orange transition-colors rounded-lg hover:bg-burnt-orange/5">Archives</a>
+                    <a href="#history" class="px-4 py-2 text-sm font-medium text-charcoal-light hover:text-burnt-orange transition-colors rounded-lg hover:bg-burnt-orange/5">History</a>
+                    <a href="#news" class="px-4 py-2 text-sm font-medium text-charcoal-light hover:text-burnt-orange transition-colors rounded-lg hover:bg-burnt-orange/5">News</a>
+                    <a href="#contact" class="ml-2 px-5 py-2 text-sm font-medium text-white btn-primary rounded-lg">Get Involved</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden p-2 text-charcoal hover:text-burnt-orange transition-colors" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 bg-parchment shadow-2xl md:hidden">
+            <div class="p-6">
+                <button id="closeMenuBtn" class="absolute top-4 right-4 p-2 text-charcoal hover:text-burnt-orange" aria-label="Close menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+                <div class="mt-8 flex flex-col gap-2">
+                    <a href="#about" class="px-4 py-3 text-charcoal hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-colors">About</a>
+                    <a href="https://www.youtube.com/@decwarorg" class="px-4 py-3 text-charcoal hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-colors">YouTube</a>
+                    <a href="https://decwarorg.blogspot.com/" class="px-4 py-3 text-charcoal hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-colors">Blog</a>
+                    <a href="#projects" class="px-4 py-3 text-charcoal hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-colors">Projects</a>
+                    <a href="#archives" class="px-4 py-3 text-charcoal hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-colors">Archives</a>
+                    <a href="#history" class="px-4 py-3 text-charcoal hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-colors">History</a>
+                    <a href="#news" class="px-4 py-3 text-charcoal hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-colors">News</a>
+                    <a href="#contact" class="mt-4 px-4 py-3 text-center text-white btn-primary rounded-lg">Get Involved</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative min-h-screen flex items-center pt-20 hero-pattern">
+        <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-3 px-4 py-2 bg-ut-teal/10 rounded-full mb-8">
+                    <span class="w-2 h-2 bg-ut-teal rounded-full animate-pulse"></span>
+                    <span class="font-mono text-xs tracking-wide text-ut-teal uppercase">A Code Preservation Society · Austin, Texas</span>
+                </div>
+
+                <h1 class="font-serif text-display-sm md:text-display text-charcoal mb-8">
+                    Preserving the history of <span class="text-burnt-orange">multiplayer gaming</span>
+                </h1>
+
+                <p class="font-serif text-xl md:text-2xl text-charcoal/70 leading-relaxed max-w-3xl mb-12">
+                    Decwar was among the first multiplayer computer games—eighteen players battling across a shared galaxy on UT Austin's PDP-10 in 1978. We're working to ensure this pioneering software and its cultural context survive.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#archives" class="btn-primary px-8 py-4 text-white font-medium rounded-lg">
+                        Explore the Archives
+                    </a>
+                    <a href="#about" class="btn-secondary px-8 py-4 text-burnt-orange font-medium rounded-lg">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-charcoal/40">
+            <span class="text-xs font-medium uppercase tracking-wider">Scroll</span>
+            <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 md:py-32 section-fade">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="tag bg-burnt-orange/10 text-burnt-orange font-mono uppercase rounded-full">About Us</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-semibold mt-6 mb-4">Our Mission</h2>
+                <p class="text-charcoal/60 max-w-2xl mx-auto text-lg">
+                    An organization bringing together faculty, alumni, archivists, and technologists.
+                </p>
+            </div>
+
+            <!-- Main about card -->
+            <div class="card rounded-2xl p-8 md:p-12 mb-16">
+                <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+                    <div class="md:col-span-2">
+                        <p class="text-lg text-charcoal/80 leading-relaxed mb-6">
+                            DecwarOrg exists to provide a permanent institutional home for the research, preservation, and historical reconstruction of Decwar—a multiplayer space combat game that emerged from the University of Texas Computation Center in 1978.
+                        </p>
+                        <p class="text-charcoal/70 leading-relaxed mb-6">
+                            Written in MACRO-10 assembly and Fortran for the DEC PDP-10, Decwar allowed up to eighteen simultaneous players to engage in tactical starship combat across a shared galactic map. The university distributed the game on magnetic tape for a nominal $50 fee, and it spread to PDP-10 installations worldwide.
+                        </p>
+                        <p class="text-charcoal/70 leading-relaxed">
+                            More than a technical artifact, Decwar represents an early example of networked social gaming. The terminal rooms where players gathered became proto-online communities, complete with their own social hierarchies, cultural norms, and collective memories.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="bg-parchment rounded-xl p-6">
+                            <div class="text-4xl font-serif font-bold text-burnt-orange mb-2">1978</div>
+                            <div class="text-sm text-charcoal/60">First Release</div>
+                        </div>
+                        <div class="bg-parchment rounded-xl p-6">
+                            <div class="text-4xl font-serif font-bold text-burnt-orange mb-2">18</div>
+                            <div class="text-sm text-charcoal/60">Simultaneous Players</div>
+                        </div>
+                        <div class="bg-parchment rounded-xl p-6">
+                            <div class="text-4xl font-serif font-bold text-burnt-orange mb-2">$50</div>
+                            <div class="text-sm text-charcoal/60">Distribution Cost</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus areas grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group p-6 rounded-xl border border-transparent hover:border-burnt-orange/20 hover:bg-white transition-all">
+                    <div class="number-marker mb-4">1</div>
+                    <h3 class="font-serif text-lg font-semibold mb-2">Code Restoration</h3>
+                    <p class="text-sm text-charcoal/70 leading-relaxed">
+                        Restoring the original codebase and stabilizing the build process for historically faithful emulated environments.
+                    </p>
+                </div>
+
+                <div class="group p-6 rounded-xl border border-transparent hover:border-burnt-orange/20 hover:bg-white transition-all">
+                    <div class="number-marker mb-4">2</div>
+                    <h3 class="font-serif text-lg font-semibold mb-2">Artifact Housing</h3>
+                    <p class="text-sm text-charcoal/70 leading-relaxed">
+                        Partnership with the Dolph Briscoe Center to acquire and preserve physical artifacts including original magnetic tapes.
+                    </p>
+                </div>
+
+                <div class="group p-6 rounded-xl border border-transparent hover:border-burnt-orange/20 hover:bg-white transition-all">
+                    <div class="number-marker mb-4">3</div>
+                    <h3 class="font-serif text-lg font-semibold mb-2">Monograph Support</h3>
+                    <p class="text-sm text-charcoal/70 leading-relaxed">
+                        Supporting <em>Decwar: A Galaxy in the Machine Room</em>, examining technical architecture and cultural significance.
+                    </p>
+                </div>
+
+                <div class="group p-6 rounded-xl border border-transparent hover:border-burnt-orange/20 hover:bg-white transition-all">
+                    <div class="number-marker mb-4">4</div>
+                    <h3 class="font-serif text-lg font-semibold mb-2">Cultural History</h3>
+                    <p class="text-sm text-charcoal/70 leading-relaxed">
+                        Documenting how the UT Computation Center functioned as a "proto-online social world" with its own norms and culture.
+                    </p>
+                </div>
+
+                <div class="group p-6 rounded-xl border border-transparent hover:border-burnt-orange/20 hover:bg-white transition-all">
+                    <div class="number-marker mb-4">5</div>
+                    <h3 class="font-serif text-lg font-semibold mb-2">Oral History</h3>
+                    <p class="text-sm text-charcoal/70 leading-relaxed">
+                        Recording interviews with original authors, early players, and Computation Center staff before these memories are lost.
+                    </p>
+                </div>
+
+                <div class="group p-6 rounded-xl border border-transparent hover:border-burnt-orange/20 hover:bg-white transition-all">
+                    <div class="number-marker mb-4">6</div>
+                    <h3 class="font-serif text-lg font-semibold mb-2">Sensory Reconstruction</h3>
+                    <p class="text-sm text-charcoal/70 leading-relaxed">
+                        Recreating the 1970s machine room experience—the sounds of line printers, tape drives, and heated electronics.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-24 md:py-32 bg-cream grid-pattern section-fade">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="tag bg-burnt-orange/10 text-burnt-orange font-mono uppercase rounded-full">Active Work</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-semibold mt-6 mb-4">Current Projects</h2>
+                <p class="text-charcoal/60 max-w-2xl mx-auto text-lg">
+                    Initiatives spanning technical restoration, academic research, and cultural preservation.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card rounded-2xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-burnt-orange/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                            </svg>
+                        </div>
+                        <span class="tag bg-charcoal/5 text-charcoal/60 font-mono uppercase rounded-full">Technical</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-semibold mb-4">Codebase Restoration</h3>
+                    <p class="text-charcoal/70 leading-relaxed mb-6">
+                        Recovering and stabilizing the original MACRO-10 assembly and Fortran source code. Working toward a reproducible build process targeting period-accurate PDP-10 emulators.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Source recovery from archival tapes
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Build system reconstruction
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Emulator compatibility testing
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card rounded-2xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-burnt-orange/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                        </div>
+                        <span class="tag bg-charcoal/5 text-charcoal/60 font-mono uppercase rounded-full">Archival</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-semibold mb-4">Physical Artifact Collection</h3>
+                    <p class="text-charcoal/70 leading-relaxed mb-6">
+                        Collaborating with the Dolph Briscoe Center for American History to locate, acquire, and properly house physical materials from the Decwar era.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Original distribution tapes
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Player documentation and manuals
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Computation Center records
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card rounded-2xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-burnt-orange/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <span class="tag bg-charcoal/5 text-charcoal/60 font-mono uppercase rounded-full">Research</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-semibold mb-4">Platform Studies Monograph</h3>
+                    <p class="text-charcoal/70 leading-relaxed mb-6">
+                        Development of <em>Decwar: A Galaxy in the Machine Room</em>, examining the game through platform studies, software preservation, and digital culture history.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Technical architecture analysis
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Social history documentation
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Comparative game studies
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card rounded-2xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-burnt-orange/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                            </svg>
+                        </div>
+                        <span class="tag bg-charcoal/5 text-charcoal/60 font-mono uppercase rounded-full">Oral History</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-semibold mb-4">Living Memory Project</h3>
+                    <p class="text-charcoal/70 leading-relaxed mb-6">
+                        Recording and preserving firsthand accounts from people who created, maintained, and played Decwar during its active years.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Author interviews (Hysick, Potter)
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Player community recollections
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-charcoal/60">
+                            <svg class="w-4 h-4 text-burnt-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            System operator perspectives
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archives & Code -->
+    <section id="archives" class="py-24 md:py-32 section-fade">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="tag bg-burnt-orange/10 text-burnt-orange font-mono uppercase rounded-full">Open Source</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-semibold mt-6 mb-4">Archives & Code</h2>
+                <p class="text-charcoal/60 max-w-2xl mx-auto text-lg">
+                    Access preserved source code, documentation, and related materials.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <a href="https://github.com/decwarorg/utexas" class="card-dark rounded-2xl p-6 group">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-8 h-8 text-burnt-orange" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <span class="font-mono text-xs text-white/50">Repository</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold text-white mb-2 group-hover:text-burnt-orange transition-colors">decwar-source</h3>
+                    <p class="text-white/60 text-sm leading-relaxed mb-4">
+                        Original MACRO-10 assembly and Fortran source with build instructions for SIMH PDP-10 emulator.
+                    </p>
+                    <span class="inline-flex items-center gap-1 text-burnt-orange text-sm font-medium">
+                        View on GitHub
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </span>
+                </a>
+
+                <a href="https://github.com/decwarorg/history" class="card-dark rounded-2xl p-6 group">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-8 h-8 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        <span class="font-mono text-xs text-white/50">Documentation</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold text-white mb-2 group-hover:text-burnt-orange transition-colors">decwar-docs</h3>
+                    <p class="text-white/60 text-sm leading-relaxed mb-4">
+                        Player manuals, technical documentation, and scanned archival materials from the original distribution.
+                    </p>
+                    <span class="inline-flex items-center gap-1 text-burnt-orange text-sm font-medium">
+                        View on GitHub
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </span>
+                </a>
+
+                <a href="https://www.youtube.com/@decwarorg" class="card-dark rounded-2xl p-6 group">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-8 h-8 text-burnt-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <span class="font-mono text-xs text-white/50">Videos</span>
+                    </div>
+                    <h3 class="font-serif text-xl font-semibold text-white mb-2 group-hover:text-burnt-orange transition-colors">YouTube videos</h3>
+                    <p class="text-white/60 text-sm leading-relaxed mb-4">
+                        Videos of our projects in action.
+                    </p>
+                    <span class="inline-flex items-center gap-1 text-burnt-orange text-sm font-medium">
+                        View on YouTube
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Code window -->
+            <div class="code-window rounded-2xl overflow-hidden">
+                <div class="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/10">
+                    <span class="w-3 h-3 rounded-full bg-[#ff5f57]"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#febc2e]"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#28c840]"></span>
+                    <span class="font-mono text-xs text-white/40 ml-3">DECWAR.MAC — Game initialization routine</span>
+                </div>
+                <pre class="p-6 font-mono text-sm text-white/80 overflow-x-auto leading-relaxed"><code><span class="text-[#7ee787]">TITLE</span>   <span class="text-[#a5d6ff]">DECWAR</span> - MULTI-PLAYER STAR TREK GAME
+<span class="text-[#7ee787]">SUBTTL</span>  UNIVERSITY OF TEXAS AT AUSTIN - 1978
+
+<span class="text-white/40">; Authors: Bob Hysick, Jeff Potter</span>
+<span class="text-white/40">; Version: 2.3 (November 1981)</span>
+
+<span class="text-[#ff7b72]">SEARCH</span>  MONSYM, MACSYM
+<span class="text-[#ff7b72]">.REQUIRE</span> SYS:MACREL
+
+<span class="text-[#79c0ff]">MAXPLY</span>==<span class="text-[#a5d6ff]">^D18</span>            <span class="text-white/40">; Maximum simultaneous players</span>
+<span class="text-[#79c0ff]">GALSIZ</span>==<span class="text-[#a5d6ff]">^D75</span>            <span class="text-white/40">; Galaxy size (75x75 sectors)</span>
+<span class="text-[#79c0ff]">NUMSTR</span>==<span class="text-[#a5d6ff]">^D100</span>           <span class="text-white/40">; Number of stars per galaxy</span>
+
+<span class="text-[#ffa657]">START:</span>  RESET
+        MOVE    P,[IOWD PDLEN,PDL]
+        MOVEI   T1,.FHSLF
+        RPCAP
+        MOVEM   T2,USRCAP       <span class="text-white/40">; Save user capabilities</span>
+        CALL    GLINIT          <span class="text-white/40">; Initialize galaxy</span>
+        CALL    PLINIT          <span class="text-white/40">; Initialize player structures</span>
+        JRST    MAIN            <span class="text-white/40">; Enter main game loop</span></code></pre>
+            </div>
+            <p class="text-center text-charcoal/50 text-sm mt-6">
+                Representative excerpt. Full source available in the repositories.
+            </p>
+        </div>
+    </section>
+
+    <!-- History Timeline -->
+    <section id="history" class="py-24 md:py-32 bg-charcoal text-white section-fade">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="tag bg-burnt-orange text-white font-mono uppercase rounded-full">Timeline</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-semibold mt-6 mb-4">A Brief History</h2>
+                <p class="text-white/60 max-w-xl mx-auto">
+                    The lineage of Star Trek games at UT Austin, 1971–1982
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-burnt-orange to-transparent md:-translate-x-px"></div>
+
+                <!-- 1971 -->
+                <div class="relative flex flex-col md:flex-row md:items-center mb-16">
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                        <span class="inline-block font-mono text-burnt-orange text-sm mb-2">1971</span>
+                        <h3 class="font-serif text-xl font-semibold mb-3">Star Trek (Mayfield)</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">
+                            High school senior Mike Mayfield creates a text-based Star Trek game on an SDS Sigma 7 at UC Irvine—inventing the tactical starship simulation rendered entirely in ASCII.
+                        </p>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-burnt-orange rounded-full -translate-x-1/2 timeline-dot"></div>
+                    <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- 1972 -->
+                <div class="relative flex flex-col md:flex-row md:items-center mb-16">
+                    <div class="md:w-1/2"></div>
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-burnt-orange rounded-full -translate-x-1/2 timeline-dot"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-12">
+                        <span class="inline-block font-mono text-burnt-orange text-sm mb-2">1972</span>
+                        <h3 class="font-serif text-xl font-semibold mb-3">HP 2000C Port</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">
+                            Mayfield rewrites in HP BASIC. The version spreads widely via David Ahl's <em>101 BASIC Computer Games</em>, seeding Star Trek variants worldwide.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 1973 -->
+                <div class="relative flex flex-col md:flex-row md:items-center mb-16">
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                        <span class="inline-block font-mono text-burnt-orange text-sm mb-2">1973</span>
+                        <h3 class="font-serif text-xl font-semibold mb-3">UT Trek</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">
+                            Grady Hicks and Jim Korp develop a BASIC Star Trek variant for UT Austin's CDC 6600, gaining popularity among Computation Center students.
+                        </p>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-burnt-orange rounded-full -translate-x-1/2 timeline-dot"></div>
+                    <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- 1974 -->
+                <div class="relative flex flex-col md:flex-row md:items-center mb-16">
+                    <div class="md:w-1/2"></div>
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-burnt-orange rounded-full -translate-x-1/2 timeline-dot"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-12">
+                        <span class="inline-block font-mono text-burnt-orange text-sm mb-2">1974</span>
+                        <h3 class="font-serif text-xl font-semibold mb-3">UT Fortran</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">
+                            Dave Matuszek and Paul Reynolds create an expanded Fortran version on the CDC 6600 with significant gameplay depth.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 1976 -->
+                <div class="relative flex flex-col md:flex-row md:items-center mb-16">
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                        <span class="inline-block font-mono text-burnt-orange text-sm mb-2">1976</span>
+                        <h3 class="font-serif text-xl font-semibold mb-3">UT War</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">
+                            The first multiplayer variant emerges—a two-player Fortran game demonstrating the appeal of human-versus-human starship combat.
+                        </p>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-burnt-orange rounded-full -translate-x-1/2 timeline-dot"></div>
+                    <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- 1978 -->
+                <div class="relative flex flex-col md:flex-row md:items-center mb-16">
+                    <div class="md:w-1/2"></div>
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-burnt-orange rounded-full -translate-x-1/2 timeline-dot"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-12">
+                        <span class="inline-block font-mono text-burnt-orange text-sm mb-2">August 1978</span>
+                        <h3 class="font-serif text-xl font-semibold mb-3">Decwar 1.0</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">
+                            Bob Hysick and Jeff Potter release Decwar for the PDP-10. Supporting eighteen simultaneous players, UT Austin distributes copies on tape for $50—spreading globally.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 1979 -->
+                <div class="relative flex flex-col md:flex-row md:items-center mb-16">
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                        <span class="inline-block font-mono text-burnt-orange text-sm mb-2">July 1979</span>
+                        <h3 class="font-serif text-xl font-semibold mb-3">Decwar 2.0</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">
+                            Major update adds new ship classes, expanded combat mechanics, and improved multiplayer synchronization.
+                        </p>
+                    </div>
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-burnt-orange rounded-full -translate-x-1/2 timeline-dot"></div>
+                    <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- 1981 -->
+                <div class="relative flex flex-col md:flex-row md:items-center">
+                    <div class="md:w-1/2"></div>
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-burnt-orange rounded-full -translate-x-1/2 timeline-dot"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-12">
+                        <span class="inline-block font-mono text-burnt-orange text-sm mb-2">November 20, 1981</span>
+                        <h3 class="font-serif text-xl font-semibold mb-3">Decwar 2.3</h3>
+                        <p class="text-white/60 text-sm leading-relaxed">
+                            The final major release. Decwar runs on dozens of systems globally before fading as institutions migrate to newer architectures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News -->
+    <section id="news" class="py-24 md:py-32 bg-cream grid-pattern section-fade">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="tag bg-burnt-orange/10 text-burnt-orange font-mono uppercase rounded-full">Updates</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-semibold mt-6 mb-4">News</h2>
+                <p class="text-charcoal/60 max-w-2xl mx-auto text-lg">
+                    Recent developments in Decwar preservation and related projects.
+                </p>
+            </div>
+
+            <!-- Featured Event -->
+            <div class="card rounded-2xl overflow-hidden mb-8">
+                <div class="bg-gradient-to-r from-burnt-orange to-orange-dark p-6 md:p-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-2">
+                        <span class="tag bg-white/20 text-white font-mono uppercase rounded-full">Featured Event</span>
+                        <span class="text-white/80 text-sm">January 2026 · SIGGRAPH SOIREE 2026 Symposium</span>
+                    </div>
+                    <h3 class="font-serif text-3xl md:text-4xl font-semibold text-white">DecWar - Collaboration across coding, installation, creative, and archival teams to revive a historic game and timeless vibe.</h3>
+                </div>
+                <div class="p-8 md:p-10">
+                    <p class="text-lg text-charcoal/70 italic mb-6 font-serif">Virtual event focused on emerging educational models and opportunities</p>
+
+                    <p class="text-charcoal/80 leading-relaxed mb-4">
+                        Discussion of the intense collaboration necessary across 2 classes, the event at large, university resources, etc.
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- Featured Event -->
+            <div class="card rounded-2xl overflow-hidden mb-8">
+                <div class="bg-gradient-to-r from-burnt-orange to-orange-dark p-6 md:p-8">
+                    <div class="flex flex-wrap items-center gap-3 mb-2">
+                        <span class="tag bg-white/20 text-white font-mono uppercase rounded-full">Featured Event</span>
+                        <span class="text-white/80 text-sm">November 2025 · UT Austin</span>
+                    </div>
+                    <h3 class="font-serif text-3xl md:text-4xl font-semibold text-white">DECWAR: Then and Now</h3>
+                </div>
+                <div class="p-8 md:p-10">
+                    <p class="text-lg text-charcoal/70 italic mb-6 font-serif">AudioPixel Collider Installation</p>
+
+                    <p class="text-charcoal/80 leading-relaxed mb-4">
+                        An interactive installation re-presenting DECWAR as both historical artifact and living system. Rather than treating it as something to be merely preserved, the installation treats it as <em>active material</em>—something to be replayed, reinterpreted, and translated into new media forms, especially sound.
+                    </p>
+
+                    <p class="text-charcoal/70 leading-relaxed mb-8">
+                        DECWAR was never just a game. It was a social simulation running across terminals, modems, and time zones—players issuing terse text commands into a shared universe that unfolded in real time.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-parchment rounded-xl p-6">
+                            <h4 class="font-serif font-semibold text-charcoal mb-2">The War Room (1978)</h4>
+                            <p class="text-sm text-charcoal/60 leading-relaxed">
+                                DECWAR as it originally existed: text-only terminal, manual commands. Players construct the galaxy mentally from coordinates and terse system messages.
+                            </p>
+                        </div>
+                        <div class="bg-parchment rounded-xl p-6">
+                            <h4 class="font-serif font-semibold text-charcoal mb-2">DECWAR Reforged</h4>
+                            <p class="text-sm text-charcoal/60 leading-relaxed">
+                                The same game logic drives live matches while emitting real-time telemetry. Movement, combat, and destruction translate into spatialized audio.
+                            </p>
+                        </div>
+                        <div class="bg-parchment rounded-xl p-6">
+                            <h4 class="font-serif font-semibold text-charcoal mb-2">Student Works</h4>
+                            <p class="text-sm text-charcoal/60 leading-relaxed">
+                                Sonification engines, ambient soundscapes, and visual interpretations created by students treating DECWAR as a generative engine.
+                            </p>
+                        </div>
+                    </div>
+
+                    <blockquote class="bg-parchment rounded-xl p-6 mb-0">
+                        <p class="font-serif text-lg text-charcoal/80 italic">
+                            "By making the invisible audible, the installation invites visitors to experience computation not as abstraction, but as a living, resonant process."
+                        </p>
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Cousin Project -->
+            <div class="card-dark rounded-2xl p-8 md:p-10">
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class="tag bg-burnt-orange text-white font-mono uppercase rounded-full">Cousin Project</span>
+                    <span class="text-white/60 text-sm">Timecapsule Preservation</span>
+                </div>
+                <h3 class="font-serif text-2xl md:text-3xl font-semibold text-white mb-4">The ITS Reconstruction Project</h3>
+
+                <p class="text-white/70 leading-relaxed mb-4">
+                    While DecwarOrg focuses on software preservation, our colleagues at Obsolescence are undertaking a complementary effort: a complete virtual AI Lab - hardware and software - as it stood at MIT in the 1970s, free to play with on your laptop.
+                </p>
+
+                <p class="text-white/60 leading-relaxed mb-6">
+                    Unsurprisingly, this AI Lab of the 1970s has become a mythical place in the world of computer science. A lot of computer jargon and the Hacker Ethic can be traced back to the Lab and its people, as do a lot of now-common software tools.
+                </p>
+
+                <a href="https://obsolescence.dev/its.html" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-burnt-orange hover:text-tangerine transition-colors font-medium">
+                    Read about the ITS reconstruction
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="py-24 md:py-32 section-fade">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="tag bg-burnt-orange/10 text-burnt-orange font-mono uppercase rounded-full">Learn More</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-semibold mt-6 mb-4">Resources</h2>
+                <p class="text-charcoal/60 max-w-2xl mx-auto text-lg">
+                    Further reading and related preservation efforts.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="card rounded-xl p-6">
+                    <h3 class="font-serif text-lg font-semibold mb-4">Related Projects</h3>
+                    <ul class="space-y-3">
+                        <li><a href="https://obsolescence.dev/its.html" class="text-burnt-orange hover:text-tangerine transition-colors link-underline">ITS Reconstruction</a> <span class="text-charcoal/60 text-sm">— MIT AI time capsule</span></li>
+                        <li><a href="https://obsolescence.dev/arpanet_home.html" class="text-burnt-orange hover:text-tangerine transition-colors link-underline">ARPANET Reconstruction</a> <span class="text-charcoal/60 text-sm">— ARPANET time capsule</span></li>
+                        <li><a href="https://obsolescence.dev/pdp10.html" class="text-burnt-orange hover:text-tangerine transition-colors link-underline">PiDP-10</a> <span class="text-charcoal/60 text-sm">— PDP-10 replica front-panel</span></li>                        <li><a href="https://github.com/PDP-10" class="text-burnt-orange hover:text-tangerine transition-colors link-underline">PDP-10 Org</a> <span class="text-charcoal/60 text-sm">— Github org for PDP-10</span></li>
+                        <li><a href="https://github.com/decwarorg" class="text-burnt-orange hover:text-tangerine transition-colors link-underline">DecwarOrg</a> <span class="text-charcoal/60 text-sm">— Github org for Decwar</span></li>
+                        <li><a href="https://decwarorg.blogspot.com/" class="text-burnt-orange hover:text-tangerine transition-colors link-underline">DecwarOrg Blog</a> <span class="text-charcoal/60 text-sm">— UT Austin and Decwar History</span></li>
+                    </ul>
+                </div>
+
+                <div class="card rounded-xl p-6">
+                    <h3 class="font-serif text-lg font-semibold mb-4">Academic Context</h3>
+                    <ul class="space-y-3">
+                        <li><a href="https://briscoecenter.org/" class="text-burnt-orange hover:text-tangerine transition-colors link-underline">Briscoe Center</a> <span class="text-charcoal/60 text-sm">— UT Austin's history archive</span></li>
+                        <li><a href="https://computerhistory.org/" class="text-burnt-orange hover:text-tangerine transition-colors link-underline">Computer History Museum</a> <span class="text-charcoal/60 text-sm">— Mountain View, CA</span></li>
+                        <li><a href="https://archive.org/" class="text-burnt-orange hover:text-tangerine transition-colors link-underline">Internet Archive</a> <span class="text-charcoal/60 text-sm">— Software preservation</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card rounded-xl p-6">
+                <h3 class="font-serif text-lg font-semibold mb-4">Selected Bibliography</h3>
+                <ul class="space-y-3 text-sm">
+                    <li class="text-charcoal/70">Ahl, David H. <em class="text-charcoal">101 BASIC Computer Games</em>. Digital Equipment Corporation, 1973.</li>
+                    <li class="text-charcoal/70">Montfort, Nick and Ian Bogost. <em class="text-charcoal">Racing the Beam: The Atari Video Computer System</em>. MIT Press, 2009.</li>
+                    <li class="text-charcoal/70">Swalwell, Melanie. <em class="text-charcoal">Homebrew Gaming and the Beginnings of Vernacular Digitality</em>. MIT Press, 2021.</li>
+                    <li class="text-charcoal/70">Levy, Steven. <em class="text-charcoal">Hackers: Heroes of the Computer Revolution</em>. Anchor Press/Doubleday, 1984.</li>
+                    <li class="text-charcoal/70">Sterling, Bruce. <em class="text-charcoal">The Hacker Crackdown. Law and Disorder on the Electronic Frontier</em>. Bantam Books, 1992.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 md:py-32 bg-charcoal text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="tag bg-burnt-orange text-white font-mono uppercase rounded-full">Join Us</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-semibold mt-6 mb-4">Get Involved</h2>
+            <p class="text-white/60 max-w-xl mx-auto mb-12 text-lg">
+                DecwarOrg is a collaborative, volunteer-driven effort. We welcome contributions from researchers, developers, archivists, and anyone with memories of early multiplayer gaming.
+            </p>
+
+            <div class="grid sm:grid-cols-3 gap-8 mb-12">
+                <a href="https://www.linkedin.com/in/haleymk/" class="block group max-w-xs mx-auto p-6 rounded-2xl transition-all duration-300 hover:bg-white/5 hover:-translate-y-1">
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 mx-auto mb-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                            <span class="font-serif text-2xl text-burnt-orange">MH</span>
+                        </div>
+
+                        <p class="font-serif text-xl font-semibold transition-colors duration-300 group-hover:text-burnt-orange">Mk Haley</p>
+
+                        <p class="text-white/50 text-sm mt-1">Faculty</p>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/erictfreeman/" class="block group max-w-xs mx-auto p-6 rounded-2xl transition-all duration-300 hover:bg-white/5 hover:-translate-y-1">
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 mx-auto mb-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                            <span class="font-serif text-2xl text-burnt-orange">EF</span>
+                        </div>
+
+                        <p class="font-serif text-xl font-semibold transition-colors duration-300 group-hover:text-burnt-orange">Eric Freeman</p>
+
+                        <p class="text-white/50 text-sm mt-1">Faculty</p>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/noahhsmith/" class="block group max-w-xs mx-auto p-6 rounded-2xl transition-all duration-300 hover:bg-white/5 hover:-translate-y-1">
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 mx-auto mb-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                            <span class="font-serif text-2xl text-burnt-orange">NS</span>
+                        </div>
+
+                        <p class="font-serif text-xl font-semibold transition-colors duration-300 group-hover:text-burnt-orange">Noah Smith</p>
+
+                        <p class="text-white/50 text-sm mt-1">Alumni</p>
+                    </div>
+                </a>
+<!--                <div class="text-center">-->
+<!--                    <div class="w-16 h-16 rounded-full bg-white/10 mx-auto mb-4 flex items-center justify-center">-->
+<!--                        <span class="font-serif text-2xl text-burnt-orange">MH</span>-->
+<!--                    </div>-->
+<!--                    <p class="font-serif text-xl font-semibold">Mk Haley</p>-->
+<!--                    <p class="text-white/50 text-sm mt-1">Faculty</p>-->
+<!--                </div>-->
+<!--                <div class="text-center">-->
+<!--                    <div class="w-16 h-16 rounded-full bg-white/10 mx-auto mb-4 flex items-center justify-center">-->
+<!--                        <span class="font-serif text-2xl text-burnt-orange">EF</span>-->
+<!--                    </div>-->
+<!--                    <p class="font-serif text-xl font-semibold">Eric Freeman</p>-->
+<!--                    <p class="text-white/50 text-sm mt-1">Faculty</p>-->
+<!--                </div>-->
+<!--                <div class="text-center">-->
+<!--                    <div class="w-16 h-16 rounded-full bg-white/10 mx-auto mb-4 flex items-center justify-center">-->
+<!--                        <span class="font-serif text-2xl text-burnt-orange">NS</span>-->
+<!--                    </div>-->
+<!--                    <p class="font-serif text-xl font-semibold">Noah Smith</p>-->
+<!--                    <p class="text-white/50 text-sm mt-1">Alumni</p>-->
+<!--                </div>-->
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://github.com/orgs/decwarorg/discussions" class="btn-primary px-8 py-4 text-white font-medium rounded-lg">
+                    Join the Discussion
+                </a>
+                <a href="https://github.com/decwarorg" class="px-8 py-4 border-2 border-white/20 text-white font-medium rounded-lg hover:bg-white/10 transition-colors">
+                    Contribute on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-charcoal border-t border-white/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <a href="https://decwar.org" class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-burnt-orange to-orange-dark flex items-center justify-center">
+                        <span class="font-mono text-white font-bold text-xs">DW</span>
+                    </div>
+                    <span class="font-serif text-lg text-white">DecwarOrg</span>
+                </a>
+
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-white/50">
+                    <a href="#about" class="hover:text-white transition-colors">About</a>
+                    <a href="https://www.youtube.com/@decwarorg" class="hover:text-white transition-colors">YouTube</a>
+                    <a href="https://decwarorg.blogspot.com/" class="hover:text-white transition-colors">Blog</a>
+                    <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                    <a href="#archives" class="hover:text-white transition-colors">Archives</a>
+                    <a href="#history" class="hover:text-white transition-colors">History</a>
+                    <a href="#news" class="hover:text-white transition-colors">News</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <p class="font-mono text-xs text-white/30">
+                    Austin, Texas
+                </p>
+            </div>
+            <div class="mt-8 pt-8 border-t border-white/5 text-center">
+                <p class="text-xs text-white/30">
+                    A volunteer initiative for the preservation of computing history. Not officially affiliated with the University of Texas at Austin.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu script -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+        // Close menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        });
+    </script>
+</body>
+</html>

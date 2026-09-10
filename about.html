@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — High Frontier Computing 1958–1982</title>
+    <meta name="description" content="About High Frontier Computing and its author, Noah Smith — a data scientist with nearly four decades on the data wavefront, from NASA Earth Science and the UT Center for Space Research to Wood Mackenzie.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'burnt-orange': '#bf5700',
+                        'orange-dark': '#a34b00',
+                        'tangerine': '#f8971f',
+                        'charcoal': '#333f48',
+                        'charcoal-light': '#4a5568',
+                        'taupe': '#d6d2c4',
+                        'ut-gray': '#9cadb7',
+                        'ut-teal': '#005f86',
+                        'ut-cyan': '#00a9b7',
+                        'ut-gold': '#ffd600',
+                        'parchment': '#faf9f7',
+                        'cream': '#f5f4f1',
+                        'warm-white': '#fffffe',
+                    },
+                    fontFamily: {
+                        serif: ['Crimson Pro', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    fontSize: {
+                        'display': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+                        'display-sm': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+
+        ::selection { background: #bf5700; color: white; }
+
+        .hero-pattern {
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(191, 87, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(0, 95, 134, 0.03) 0%, transparent 50%);
+        }
+
+        .card {
+            background: white;
+            border: 1px solid rgba(191, 87, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card:hover {
+            border-color: rgba(191, 87, 0, 0.3);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card-dark {
+            background: linear-gradient(135deg, #333f48 0%, #2a353f 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-dot { box-shadow: 0 0 0 4px #333f48, 0 0 0 6px #bf5700; }
+
+        .section-fade { position: relative; }
+        .section-fade::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(to right, transparent, rgba(191, 87, 0, 0.2) 20%, rgba(191, 87, 0, 0.2) 80%, transparent);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #bf5700 0%, #a34b00 100%);
+            box-shadow: 0 4px 14px -2px rgba(191, 87, 0, 0.4);
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px -2px rgba(191, 87, 0, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #bf5700;
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:hover { background: #bf5700; color: white; }
+
+        blockquote {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 3px solid #bf5700;
+        }
+        blockquote::before {
+            content: '"';
+            position: absolute; top: -0.5rem; left: 0.5rem;
+            font-size: 4rem; font-family: 'Crimson Pro', serif;
+            color: rgba(191, 87, 0, 0.1); line-height: 1;
+        }
+
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+        .mobile-menu.open { transform: translateX(0); }
+
+        .tag { font-size: 0.65rem; letter-spacing: 0.1em; padding: 0.35rem 0.75rem; }
+
+        .link-underline { position: relative; }
+        .link-underline::after {
+            content: '';
+            position: absolute; bottom: -2px; left: 0; width: 0; height: 1px;
+            background: currentColor; transition: width 0.2s ease;
+        }
+        .link-underline:hover::after { width: 100%; }
+
+        /* Vertical CV timeline (matches the home-page timeline treatment) */
+        .cv-list { position: relative; }
+        .cv-list::before {
+            content: '';
+            position: absolute; left: 0.5rem; top: 0.5rem; bottom: 0.5rem; width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(191, 87, 0, 0.4), transparent);
+        }
+        .cv-item { position: relative; padding-left: 2.25rem; }
+        .cv-item::before {
+            content: '';
+            position: absolute; left: 0.5rem; top: 0.55rem; width: 0.65rem; height: 0.65rem;
+            border-radius: 50%; background: #bf5700; transform: translateX(-50%);
+            box-shadow: 0 0 0 4px #faf9f7, 0 0 0 6px rgba(191, 87, 0, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-parchment text-charcoal antialiased">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-parchment/80 backdrop-blur-md border-b border-burnt-orange/10">
+        <nav class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="group flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-burnt-orange to-orange-dark flex items-center justify-center">
+                        <span class="font-mono text-white font-bold text-sm">HFC</span>
+                    </div>
+                    <span class="font-serif text-xl font-semibold text-charcoal group-hover:text-burnt-orange transition-colors">
+                        High Frontier <span class="text-burnt-orange">Computing</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="index.html#history" class="px-4 py-2 text-sm font-medium text-charcoal-light hover:text-burnt-orange transition-colors rounded-lg hover:bg-burnt-orange/5">History</a>
+                    <a href="index.html#methods" class="px-4 py-2 text-sm font-medium text-charcoal-light hover:text-burnt-orange transition-colors rounded-lg hover:bg-burnt-orange/5">Methods</a>
+                    <a href="index.html#timeline" class="px-4 py-2 text-sm font-medium text-charcoal-light hover:text-burnt-orange transition-colors rounded-lg hover:bg-burnt-orange/5">Timeline</a>
+                    <a href="index.html#read" class="px-4 py-2 text-sm font-medium text-charcoal-light hover:text-burnt-orange transition-colors rounded-lg hover:bg-burnt-orange/5">Read More</a>
+                    <a href="about.html" class="px-4 py-2 text-sm font-medium text-burnt-orange bg-burnt-orange/5 rounded-lg">About</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden p-2 text-charcoal hover:text-burnt-orange transition-colors" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 bg-parchment shadow-2xl md:hidden z-50">
+            <div class="p-6">
+                <button id="closeMenuBtn" class="absolute top-4 right-4 p-2 text-charcoal hover:text-burnt-orange" aria-label="Close menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+                <div class="mt-8 flex flex-col gap-2">
+                    <a href="index.html#history" class="px-4 py-3 text-charcoal hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-colors">History</a>
+                    <a href="index.html#methods" class="px-4 py-3 text-charcoal hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-colors">Methods</a>
+                    <a href="index.html#timeline" class="px-4 py-3 text-charcoal hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-colors">Timeline</a>
+                    <a href="index.html#read" class="px-4 py-3 text-charcoal hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-colors">Read More</a>
+                    <a href="about.html" class="px-4 py-3 text-burnt-orange bg-burnt-orange/5 rounded-lg transition-colors">About</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About intro -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-20 hero-pattern">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="inline-flex items-center gap-3 px-4 py-2 bg-ut-teal/10 rounded-full mb-6">
+                <span class="w-2 h-2 bg-ut-teal rounded-full animate-pulse"></span>
+                <span class="font-mono text-xs tracking-wide text-ut-teal uppercase">About</span>
+            </div>
+            <h1 class="font-serif text-4xl md:text-display-sm text-charcoal mb-6">
+                About <span class="text-burnt-orange">Us</span>
+            </h1>
+            <p class="font-serif text-xl md:text-2xl text-charcoal/70 leading-relaxed max-w-3xl">
+                Us is one person, so far. High Frontier Computing is the work of Noah Smith &mdash; a data scientist retracing a history he lived a part of.
+            </p>
+        </div>
+    </section>
+
+    <!-- Who / connection to the project -->
+    <section class="pb-8 section-fade">
+        <div class="max-w-4xl mx-auto px-6 pt-16">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="md:col-span-2">
+                    <span class="tag bg-burnt-orange/10 text-burnt-orange font-mono uppercase rounded-full">The Author</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-semibold mt-5 mb-5">Noah Smith</h2>
+                    <p class="text-lg text-charcoal/80 leading-relaxed mb-5">
+                        This project is not a detached survey. Its author spent a quarter-century at the University of Texas at Austin &mdash; first as a software developer on NASA Earth Science work, including Hubble Space Telescope astrometry, then as an aerospace engineer at the Center for Space Research. That is the same institution, and much the same lineage of machines and methods, that the essay traces from the CDC 6600 to UTOPIA.
+                    </p>
+                    <p class="text-charcoal/70 leading-relaxed">
+                        The through-line of a career &mdash; numerical modeling, orbit determination, and large-scale data &mdash; is the through-line of the history itself. High Frontier Computing is an attempt to preserve that world of code, machines, and mathematics before it fades from living memory.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="card rounded-2xl p-6">
+                        <div class="font-mono text-xs text-charcoal/50 uppercase tracking-wide mb-1">Role</div>
+                        <div class="font-serif text-xl font-semibold">Data Scientist</div>
+                    </div>
+                    <div class="card rounded-2xl p-6">
+                        <div class="font-mono text-xs text-charcoal/50 uppercase tracking-wide mb-1">Based in</div>
+                        <div class="font-serif text-xl font-semibold">Austin, Texas &amp; Hamburg, Germany</div>
+                    </div>
+                    <div class="card-dark rounded-2xl p-6">
+                        <div class="font-mono text-xs text-white/50 uppercase tracking-wide mb-2">Contact</div>
+                        <a href="mailto:noahhsmith@utexas.edu" class="block text-white hover:text-burnt-orange transition-colors font-medium link-underline break-all">noahhsmith@utexas.edu</a>
+                        <a href="https://www.linkedin.com/in/noahhsmith" class="mt-2 inline-flex items-center gap-1 text-burnt-orange text-sm font-medium" target="_blank" rel="noopener noreferrer">
+                            LinkedIn
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5h5v5m0-5L10 14M9 5H5a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1v-4"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <blockquote class="mt-12 max-w-2xl">
+                <p class="font-serif text-xl md:text-2xl text-charcoal/80 italic leading-relaxed">
+                    Nearly four decades on the data wavefront.
+                </p>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- CV: Experience -->
+    <section class="py-16 md:py-24 section-fade">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="mb-12">
+                <span class="tag bg-burnt-orange/10 text-burnt-orange font-mono uppercase rounded-full">Curriculum Vitae</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-semibold mt-5">Experience</h2>
+            </div>
+
+            <div class="cv-list flex flex-col gap-10">
+                <div class="cv-item">
+                    <span class="inline-block font-mono text-burnt-orange text-sm mb-1">Nov 2017 &ndash; Present</span>
+                    <h3 class="font-serif text-xl font-semibold">Data Scientist</h3>
+                    <p class="text-charcoal/70 mb-1">Wood Mackenzie &middot; Hamburg, Germany</p>
+                    <p class="text-charcoal/60 text-sm">Data science for the energy and natural-resources research firm.</p>
+                </div>
+
+                <div class="cv-item">
+                    <span class="inline-block font-mono text-burnt-orange text-sm mb-1">Sep 2015 &ndash; Oct 2017</span>
+                    <h3 class="font-serif text-xl font-semibold">Data Scientist</h3>
+                    <p class="text-charcoal/70 mb-1">Voipfuture GmbH &middot; Hamburg, Germany</p>
+                    <p class="text-charcoal/60 text-sm">Analytics for voice-over-IP quality measurement.</p>
+                </div>
+
+                <div class="cv-item">
+                    <span class="inline-block font-mono text-burnt-orange text-sm mb-1">Sep 2014 &ndash; Aug 2015</span>
+                    <h3 class="font-serif text-xl font-semibold">Data Scientist</h3>
+                    <p class="text-charcoal/70 mb-1">Ibeo Automotive Systems GmbH &middot; Hamburg, Germany</p>
+                    <p class="text-charcoal/60 text-sm">Data science for automotive lidar and sensor systems.</p>
+                </div>
+
+                <div class="cv-item">
+                    <span class="inline-block font-mono text-burnt-orange text-sm mb-1">Sep 2003 &ndash; Aug 2014</span>
+                    <h3 class="font-serif text-xl font-semibold">Aerospace Engineer</h3>
+                    <p class="text-charcoal/70 mb-1">University of Texas at Austin, Center for Space Research &middot; Austin, Texas</p>
+                    <p class="text-charcoal/60 text-sm">Orbit determination and space geodesy &mdash; the world of UTOPIA and satellite gravity modeling described in this project.</p>
+                </div>
+
+                <div class="cv-item">
+                    <span class="inline-block font-mono text-burnt-orange text-sm mb-1">Sep 1989 &ndash; Aug 2003</span>
+                    <h3 class="font-serif text-xl font-semibold">Software Developer</h3>
+                    <p class="text-charcoal/70 mb-1">University of Texas at Austin, NASA Earth Science &middot; Austin, Texas</p>
+                    <p class="text-charcoal/60 text-sm">Numerical and database projects, including NASA Hubble Space Telescope astrometry.</p>
+                </div>
+            </div>
+
+            <p class="mt-8 font-mono text-xs text-charcoal/45">Roughly 25 years at the University of Texas at Austin across the two UT roles.</p>
+        </div>
+    </section>
+
+    <!-- CV: Education + Skills -->
+    <section class="py-16 md:py-24 bg-cream section-fade">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Education -->
+                <div>
+                    <span class="tag bg-burnt-orange/10 text-burnt-orange font-mono uppercase rounded-full">Education</span>
+                    <h2 class="font-serif text-3xl font-semibold mt-5 mb-8">Education</h2>
+                    <div class="flex flex-col gap-6">
+                        <div class="card rounded-2xl p-6">
+                            <span class="font-mono text-burnt-orange text-sm">2003 &ndash; 2012</span>
+                            <h3 class="font-serif text-xl font-semibold mt-1">Ph.D., Aerospace Engineering</h3>
+                            <p class="text-charcoal/70 text-sm mt-1">The University of Texas at Austin</p>
+                        </div>
+                        <div class="card rounded-2xl p-6">
+                            <span class="font-mono text-burnt-orange text-sm">1987 &ndash; 1991</span>
+                            <h3 class="font-serif text-xl font-semibold mt-1">B.A., Astronomy</h3>
+                            <p class="text-charcoal/70 text-sm mt-1">The University of Texas at Austin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills / Languages / Honors -->
+                <div>
+                    <span class="tag bg-burnt-orange/10 text-burnt-orange font-mono uppercase rounded-full">Expertise</span>
+                    <h2 class="font-serif text-3xl font-semibold mt-5 mb-8">Skills &amp; Recognition</h2>
+
+                    <div class="mb-8">
+                        <h3 class="font-mono text-xs text-charcoal/50 uppercase tracking-wide mb-3">Top Skills</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag bg-white border border-burnt-orange/20 text-charcoal/70 rounded-full">Data Science</span>
+                            <span class="tag bg-white border border-burnt-orange/20 text-charcoal/70 rounded-full">Modeling</span>
+                            <span class="tag bg-white border border-burnt-orange/20 text-charcoal/70 rounded-full">Analytics</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="font-mono text-xs text-charcoal/50 uppercase tracking-wide mb-3">Languages</h3>
+                        <ul class="text-charcoal/75 space-y-1">
+                            <li>English &mdash; Native or Bilingual</li>
+                            <li>German &mdash; Limited Working</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-mono text-xs text-charcoal/50 uppercase tracking-wide mb-3">Honors &amp; Awards</h3>
+                        <ul class="text-charcoal/75 space-y-1">
+                            <li>NASA Postdoctoral Fellowship</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV: Publications (low-key) -->
+    <section class="py-16 md:py-24 section-fade">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="mb-8">
+                <span class="tag bg-burnt-orange/10 text-burnt-orange font-mono uppercase rounded-full">Selected Publications</span>
+                <h2 class="font-serif text-2xl md:text-3xl font-semibold mt-4">Publications</h2>
+                <p class="text-charcoal/55 text-sm mt-2 max-w-2xl">Space geodesy and precision attitude determination, chiefly on NASA's ICESat mission &mdash; the modern continuation of the orbit-determination work this project traces.</p>
+            </div>
+
+            <ol class="text-sm text-charcoal/70 leading-relaxed space-y-2.5">
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2017</span>
+                    <span>Patel, Smith, Bae, Schutz. "Effect of sun shade performance on ICESat-2 laser reference sensor alignment estimation." <em>AAS Advances in the Astronautical Sciences</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2014</span>
+                    <span>Smith, Bae, Schutz. "Laser reference sensor alignment tracking and star observations." <em>AIAA Journal of Spacecraft and Rockets</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2014</span>
+                    <span>Smith, Bae, Schutz. "Laser reference sensor alignment estimation using star observations." <em>AIAA Journal of Spacecraft and Rockets</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2014</span>
+                    <span>Smith, Bae, Schutz. "Laser reference sensor alignment estimation using reference signal observations." <em>AIAA Journal of Spacecraft and Rockets</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2013</span>
+                    <span>Smith, Bae, Schutz. "NASA ICESat 2 pointing knowledge." <em>NASA Technical Report</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2012</span>
+                    <span>Bae, Smith, Schutz. "NASA ICESat 1 pointing knowledge." <em>NASA Technical Report</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2011</span>
+                    <span>Smith, Fowell, Bae, Schutz. "Improved star tracker instrument magnitude prediction from ICESat flight telemetry." <em>AAS Advances in the Astronautical Sciences</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2010</span>
+                    <span>Smith, Bae, Schutz. "Biased star tracker measurements of forty-nine stars from flight data." <em>AIAA Journal of Spacecraft and Rockets</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2010</span>
+                    <span>Smith, Bae, Schutz. "Forty-nine biased star positions from ICESat flight data." <em>AAS Advances in the Astronautical Sciences</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2010</span>
+                    <span>Bae, Smith, Schutz. "ICESat attitude and pointing correction using the laser reference sensor." <em>AAS Advances in the Astronautical Sciences</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2009</span>
+                    <span>Bae, Ricklefs, Smith, Schutz. "Time tag issues in the star tracker and gyro data for ICESat precision attitude determination." <em>AAS Advances in the Astronautical Sciences</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2009</span>
+                    <span>Fowell, Smith, Bae, Schutz. "Bad stars." <em>AAS Advances in the Astronautical Sciences</em>.</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="font-mono text-burnt-orange/70 text-xs pt-0.5 shrink-0 w-9">2008</span>
+                    <span>Schutz, Bae, Smith, Sirota. "Precision orbit and attitude determination for ICESat." <em>AAS Advances in the Astronautical Sciences</em>.</span>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Back to project -->
+    <section class="py-16 md:py-20 section-fade">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl font-semibold mb-4">Read the History</h2>
+            <p class="text-charcoal/60 max-w-2xl mx-auto mb-8">
+                The essay and its summaries trace the code, machines, and mathematics of Texas computing from 1958 to 1982.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="index.html" class="btn-primary px-8 py-4 text-white font-medium rounded-lg">Back to Home</a>
+                <a href="summary.html" class="btn-secondary px-8 py-4 text-burnt-orange font-medium rounded-lg">Read the Summary</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-charcoal border-t border-white/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-burnt-orange to-orange-dark flex items-center justify-center">
+                        <span class="font-mono text-white font-bold text-xs">HFC</span>
+                    </div>
+                    <span class="font-serif text-lg text-white">High Frontier Computing</span>
+                </a>
+
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-white/50">
+                    <a href="index.html#history" class="hover:text-white transition-colors">History</a>
+                    <a href="index.html#methods" class="hover:text-white transition-colors">Methods</a>
+                    <a href="index.html#timeline" class="hover:text-white transition-colors">Timeline</a>
+                    <a href="index.html#read" class="hover:text-white transition-colors">Read More</a>
+                    <a href="about.html" class="hover:text-white transition-colors">About</a>
+                </div>
+
+                <p class="font-mono text-xs text-white/30">Austin &amp; Houston, Texas</p>
+            </div>
+            <div class="mt-8 pt-8 border-t border-white/5 text-center">
+                <p class="text-xs text-white/30">High Frontier Computing &mdash; a history of numerical modeling and simulation in the mainframe era.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile menu script -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    </script>
+</body>
+</html>
